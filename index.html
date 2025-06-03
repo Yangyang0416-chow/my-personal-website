@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>星尘诗篇 | 诗意星际空间</title>
+    <title>星尘诗篇</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
@@ -240,10 +240,11 @@
         
         @media (max-width: 600px) {
             .moon-phrase {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+                white-space: nowrap;
             }
             .star-phrase {
-                font-size: 2.4rem;
+                font-size: 2.0rem;
             }
             .paper-moon {
                 width: 100px;
@@ -516,13 +517,13 @@
         function animateTextSequence() {
             // 第一句文案浮现
             gsap.to('.moon-phrase', {
-                duration: 2,
+                duration: 1.5,
                 opacity: 0.9,
                 ease: "sine.out",
                 onComplete: function() {
                     // 第二句文案浮现 (带强调效果的星群文案)
                     gsap.to('.star-phrase', {
-                        duration: 2.2,
+                        duration: 1.5,
                         opacity: 1,
                         textShadow: "0 0 30px rgba(255,255,255,0.6)",
                         ease: "back.out(1.7)"
@@ -531,11 +532,11 @@
                     // 延迟后显示按钮
                     setTimeout(() => {
                         gsap.to('.silk-portal', {
-                            duration: 1.8,
+                            duration: 1.2,
                             opacity: 1,
                             ease: "bounce.out"
                         });
-                    }, 1500);
+                    }, 500);
                 }
             });
         }
@@ -594,7 +595,7 @@
                         animateTextSequence();
                     }
                 });
-            }, 1800);
+            }, 500);
             
             window.addEventListener('resize', onWindowResize);
             onWindowResize();
